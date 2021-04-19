@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 
-pub fn openfile(filepath: &Path) {
+pub fn openfile(filepath: &Path) { // Need: let path = Path::new("adfgvx.txt");
     // Create a path to the desired file
     let display = filepath.display();
 

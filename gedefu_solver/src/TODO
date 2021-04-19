@@ -1,0 +1,17 @@
+Encrypt
+    Insert a string to encrypt
+
+    Step 1: Polybe Array
+        Create the Polybe Array
+        Complete the array with the specific alphabet
+        Convert string to preciphered text
+
+    Step 2 : Permutation
+        Create the Key based Array
+        Complete the array with the preciphered text
+        Permute column according to the alphabetical order of the key
+    Get the ciphered text.
+
+Decrypt
+
+Breaker
