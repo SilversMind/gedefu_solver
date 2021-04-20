@@ -3,6 +3,8 @@ Encrypt
 
     Step 1: Polybe Array
         Create the Polybe Array
+            Generate all combinations "AA", "AD", ..., "VX", "XX"
+            
         Complete the array with the specific alphabet
         Convert string to preciphered text
 
