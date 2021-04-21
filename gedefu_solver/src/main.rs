@@ -1,4 +1,3 @@
-mod permutations;
 mod lib;
 use std::collections::HashMap;
 use itertools::Itertools;
