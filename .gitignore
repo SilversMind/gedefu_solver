@@ -3,3 +3,4 @@
 *.toml
 *.TAG
 gedefu_solver/target/*
+.vscode/launch.json

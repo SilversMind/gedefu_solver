@@ -1,16 +1,18 @@
-mod combinations;
+mod permutations;
+mod lib;
+use std::collections::HashMap;
+use itertools::Itertools;
+
 
 
 fn main() 
 {
-	let plaintext = String::from("LES POTES DE YANNICK SONT ULTRA GENANTS");
+	let plaintext = String::from("TON PULL DE JOLIE");
+	let translate_dictionary: HashMap<_, _> = lib::create_polybe_square();
 
-	let vec: Vec<char> = vec!['A', 'D', 'F', 'G', 'V', 'X'];
+	
+	for (key, value) in &translate_dictionary {
+		println!("{}, {:?}", key, value)
+	}
 
-    for comb in combinations::CombinationsWithRepetitions::new(&vec, 2) {
-        for item in &comb {
-            print!("{} ", item)
-        }
-        println!()
-    }
 }
