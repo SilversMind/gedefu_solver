@@ -1,11 +1,12 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use std::collections::HashMap;
-use itertools::Itertools;
 
+pub fn remove_whitespace(s: &mut String) {
+    s.retain(|c| !c.is_whitespace());
+}
 
-pub fn openfile(filepath: &Path) { // Need let path = Path::new("adfgvx.txt");
+/*pub fn openfile(filepath: &Path) { // Need let path = Path::new("adfgvx.txt");
     // Create a path to the desired file
     let display = filepath.display();
     // Open the path in read-only mode, returns `io::Result<File>`
@@ -22,7 +23,7 @@ pub fn openfile(filepath: &Path) { // Need let path = Path::new("adfgvx.txt");
     }
 
     // `file` goes out of scope, and the "hello.txt" file gets closed
-}
+}*/
 
 pub mod Permutations {
     pub struct PermutationIterator<'a, T: 'a> {

@@ -2,10 +2,10 @@ Encrypt
     Insert a string to encrypt
 
     Step 1: Polybe Array
-        Create the Polybe Array
-            Generate all combinations "AA", "AD", ..., "VX", "XX"
-            
-        Complete the array with the specific alphabet
+        Create the Polybe Array OK
+            Generate all combinations "AA", "AD", ..., "VX", "XX" OK
+
+        Complete the array with the specific alphabet OK
         Convert string to preciphered text
 
     Step 2 : Permutation
