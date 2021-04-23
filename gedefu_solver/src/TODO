@@ -1,16 +1,16 @@
 Encrypt
     Insert a string to encrypt
 
-    Step 1: Polybe Array
+    Step 1: Polybe Array OK
         Create the Polybe Array OK
             Generate all combinations "AA", "AD", ..., "VX", "XX" OK
 
         Complete the array with the specific alphabet OK
-        Convert string to preciphered text
+        Convert string to preciphered text OK
 
     Step 2 : Permutation
-        Create the Key based Array
-        Complete the array with the preciphered text
+        Create the Key based Array OK
+        Complete the array with the preciphered text OK
         Permute column according to the alphabetical order of the key
     Get the ciphered text.
 
