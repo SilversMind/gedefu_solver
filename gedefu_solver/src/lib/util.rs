@@ -6,6 +6,7 @@ pub mod string_operation{
         s.retain(|c| !c.is_whitespace());
     }
 }
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct CharColumn {
     key_char: char,
     vec_char: Vec<char>,
