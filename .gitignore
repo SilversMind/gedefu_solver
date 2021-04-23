@@ -4,3 +4,4 @@
 *.TAG
 gedefu_solver/target/*
 .vscode/launch.json
+gedefu_solver/src/adder/target/*
