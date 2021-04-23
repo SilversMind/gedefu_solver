@@ -1,4 +1,4 @@
-Encrypt
+Encrypt OK
     Insert a string to encrypt
 
     Step 1: Polybe Array OK
@@ -11,9 +11,18 @@ Encrypt
     Step 2 : Permutation
         Create the Key based Array OK
         Complete the array with the preciphered text OK
-        Permute column according to the alphabetical order of the key
-    Get the ciphered text.
+        Permute column according to the alphabetical order of the key OK
+    Get the ciphered text. OK
 
 Decrypt
+    Step 1: Store ciphered text in vectors
+    
+    Step 2: Permute vector following the key
+        Obtain permutation function p(x) from the key and inverse permutation function from p(x)
+        Add an index attribute in CharColumn to correctly place vector
+
+    Step 3: Obtain intermediate cipher text
+
+    Step 4: Get plaintext from tranlated ciphertext using Polybe array
 
 Breaker
