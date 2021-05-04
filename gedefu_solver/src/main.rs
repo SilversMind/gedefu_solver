@@ -1,27 +1,25 @@
 mod library;
-use std::collections::HashMap;
 
-fn find_key_for_value<'a>(map: &'a HashMap<char, Vec<char>>, value: &Vec<char>) -> Option<&'a char> {
-	let mut to_return: Option<&char> = None;
-	for (key, val) in map.into_iter() {
-		if value == val {
-			to_return = Some(&key);
-		}
+pub fn decrypt_adfgvx(ciphertext: String, secret: String) -> String{
+	let polybe_square = library::create_polybe_square();
+	let mut deciphered_text = String::new();
+	let pre_ciphered_text = library::build_preciphered_string(ciphertext, &secret);
+	for i in (0..pre_ciphered_text.len() - 1).step_by(2){
+		let char_: Vec<char> =  pre_ciphered_text[i..i+2].chars().collect();
+		let deciphered_char = library::find_key_for_value(&polybe_square, &char_).unwrap();
+		deciphered_text.push(*deciphered_char)
 	}
-	to_return
+	
+	deciphered_text
 }
 
 
 fn main() {
 	let ciphered_text = String::from("FGFAD GDDFF FXFFX");
-	let polybe_square = library::create_polybe_square();
-
 	let secret = String::from("HOCUS");
-	let pre_ciphered_text = library::build_preciphered_string(ciphered_text, &secret);
-	println!("{}", pre_ciphered_text);
-	let test: Vec<char> = pre_ciphered_text[0..2].chars().collect();
-	let associated_char = find_key_for_value(&polybe_square, &test).unwrap();
-	println!("{}", associated_char);
+	println!("{}", decrypt_adfgvx(ciphered_text, secret))
+
+	
 
 
 

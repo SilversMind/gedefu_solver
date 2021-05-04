@@ -4,7 +4,7 @@ pub mod util;
 pub mod permutation;
 
 
-pub fn create_polybe_square() -> HashMap<char, Vec<char>> {
+fn create_polybe_square() -> HashMap<char, Vec<char>> {
     let vec: Vec<char> = vec!['A', 'D', 'F', 'G', 'V', 'X'];
     let polybe_square = permutation::permutations(&vec, 2);
     let mut polybe_vec : Vec<_> = polybe_square.into_iter().collect();
@@ -28,7 +28,7 @@ fn polybe_encryption(mut plaintext: String) -> String {
     return ciphered_string;
 }
 
-pub fn init_column_vectors(mut column_vec: Vec<util::CharColumn> ,secret: &String) -> Vec<util::CharColumn> {
+fn init_column_vectors(mut column_vec: Vec<util::CharColumn> ,secret: &String) -> Vec<util::CharColumn> {
     for char in secret.chars(){
         column_vec.push(util::CharColumn::new(char));
     }
@@ -91,7 +91,7 @@ fn get_vectors_from_ciphertext(mut ciphered_text: String, secret: &String) -> Ve
 
 }
 
-pub fn build_preciphered_string(ciphered_text: String, secret: &String) -> String {
+fn build_preciphered_string(ciphered_text: String, secret: &String) -> String {
 	let mut pre_ciphered_text = String::new();
 	let secret_scrambled = util::string_operation::sort_str_by_alphabetical_order(&secret);
 	let column_vec: Vec<util::CharColumn> = get_vectors_from_ciphertext(ciphered_text, &secret_scrambled);
@@ -105,4 +105,27 @@ pub fn build_preciphered_string(ciphered_text: String, secret: &String) -> Strin
 		}
 	}
     pre_ciphered_text
+}
+
+fn find_key_for_value<'a>(map: &'a HashMap<char, Vec<char>>, value: &Vec<char>) -> Option<&'a char> {
+	let mut to_return: Option<&char> = None;
+	for (key, val) in map.into_iter() {
+		if value == val {
+			to_return = Some(&key);
+		}
+	}
+	to_return
+}
+
+pub fn decrypt_adfgvx(ciphertext: String, secret: String) -> String{
+	let polybe_square = create_polybe_square();
+	let mut deciphered_text = String::new();
+	let pre_ciphered_text = build_preciphered_string(ciphertext, &secret);
+	for i in (0..pre_ciphered_text.len() - 1).step_by(2){
+		let char_: Vec<char> =  pre_ciphered_text[i..i+2].chars().collect();
+		let deciphered_char = find_key_for_value(&polybe_square, &char_).unwrap();
+		deciphered_text.push(*deciphered_char)
+	}
+	
+	deciphered_text
 }
