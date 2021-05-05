@@ -129,3 +129,21 @@ pub fn decrypt_adfgvx(ciphertext: String, secret: String) -> String{
 	
 	deciphered_text
 }
+
+
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_encrypt_decrypt_adfgvx() {
+        assert_eq!("FGFADGDDFFFXFFX", encrypt_adfgvx(String::from("BONJOUR"), String::from("HOCUS")));
+        assert_eq!("BONJOUR", decrypt_adfgvx(String::from("FGFADGDDFFFXFFX"), String::from("HOCUS")));
+
+        assert_eq!("FGFFGGAFFDXFDFAVFDAFDGDGDXVDXGFFAAFAAAFFVAXVAAXFGAFGGAADAXFADXVF", encrypt_adfgvx(String::from("ON EST LA FRERO ON EST LA TU VA FAIRE QUOI"), String::from("ABCDEFGH")));
+        assert_eq!("ONESTLAFREROONESTLATUVAFAIREQUOI", decrypt_adfgvx(String::from("FGFFGGAFFDXFDFAVFDAFDGDGDXVDXGFFAAFAAAFFVAXVAAXFGAFGGAADAXFADXVF"), String::from("ABCDEFGH")))
+    }
+}
