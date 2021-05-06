@@ -4,8 +4,8 @@ use std::iter::FromIterator;
 
 pub mod string_operation{
 
-    pub fn remove_whitespace(s: &mut String) {
-        s.retain(|c| !c.is_whitespace());
+    pub fn remove_whitespace(s: &str) -> String {
+        s.chars().filter(|c| !c.is_whitespace()).collect()
     }
     pub fn sort_str_by_alphabetical_order(s: &String) -> String {
         let s_slice: &str = &s[..];
